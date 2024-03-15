@@ -1,5 +1,5 @@
 <?php
-    require_once 'init.php';
+    require_once '../init.php';
     $PDO = db_connect();
     $sql = "SELECT id, nome, estilo, anoCriacao FROM Bandas ORDER BY id ASC";
     $stmt = $PDO->prepare($sql);
@@ -13,9 +13,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bandas</title>
-    <script src="bootstrap/js/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
-    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="../bootstrap/js/popper.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    <script src="../bootstrap/js/jquery.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -40,8 +40,8 @@
                             <td><?php echo $banda['estilo'] ?></td>
                             <td><?php echo $banda['anoCriacao'] ?></td>
                             <td>
-                                <a class="btn btn-primary" href="form-edit-tipo.php?id=<?php echo $banda['id'] ?>">Editar</a> 
-                                <a class="btn btn-danger" href="deleteTipo.php?id=<?php echo $banda['id'] ?>" onclick="return confirm('Tem certeza de que deseja remover?');">Remover</a>
+                                <a class="btn btn-primary" href="../formulários/formeditbanda.php?id=<?php echo $banda['id'] ?>">Editar</a> 
+                                <a class="btn btn-danger" href="./removebanda.php?id=<?php echo $banda['id'] ?>" onclick="return confirm('Tem certeza de que deseja remover?');">Remover</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>
